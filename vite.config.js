@@ -5,7 +5,12 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   plugins: [sveltekit()],
   css: {
-    postcss: true
+    postcss: {
+      plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+      ]
+    }
   },
   server: {
     port: 5173,
@@ -18,6 +23,12 @@ export default defineConfig({
   build: {
     target: 'esnext',
     minify: 'terser',
-    sourcemap: true
+    sourcemap: true,
+    cssMinify: true,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
   }
 });
