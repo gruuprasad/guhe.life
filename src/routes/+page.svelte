@@ -2,16 +2,16 @@
   import { base } from "$app/paths";
   let featuredProjects = [
     {
-      title: 'Project One',
-      description: 'A modern web application built with Svelte and Node.js',
-      image: '/project1.jpg',
-      link: '/projects/1'
+      title: 'ORT Playout Server',
+      description: 'Implemented new features for ORT playout servers and live stream handling at Evertz India Pvt Ltd.',
+      technologies: ['C++', 'Python', 'Docker', 'Jenkins'],
+      link: 'https://evertz.com'
     },
     {
-      title: 'Project Two',
-      description: 'An e-commerce platform with real-time inventory management',
-      image: '/project2.jpg',
-      link: '/projects/2'
+      title: 'Compiler Tools Development',
+      description: 'Contributed to compiler tools development at Max Planck Institute for Software Systems.',
+      technologies: ['C++', 'LLVM', 'CMake'],
+      link: 'https://www.mpi-sws.org'
     }
   ];
 </script>
@@ -23,7 +23,7 @@
       <div class="max-w-3xl mx-auto text-center">
         <h1 class="text-5xl font-bold mb-6">Welcome to My Portfolio</h1>
         <p class="text-xl mb-8">
-          I'm a full-stack developer passionate about creating beautiful and functional web applications.
+          I'm a software engineer with expertise in system development, cloud technologies, and research.
         </p>
         <div class="space-x-4">
           <a href="/projects" class="btn bg-white text-blue-600 hover:bg-gray-100">View My Work</a>
@@ -43,7 +43,16 @@
             <div class="p-6">
               <h3 class="text-2xl font-semibold mb-2">{project.title}</h3>
               <p class="text-gray-600 mb-4">{project.description}</p>
-              <a href={project.link} class="btn-primary inline-block">Learn More</a>
+              <div class="mb-4">
+                <div class="flex flex-wrap gap-2">
+                  {#each project.technologies as tech}
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                      {tech}
+                    </span>
+                  {/each}
+                </div>
+              </div>
+              <a href={project.link} target="_blank" rel="noopener noreferrer" class="btn-primary inline-block">Learn More</a>
             </div>
           </div>
         {/each}
@@ -57,16 +66,16 @@
       <h2 class="section-title">What I Do</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="text-center p-6">
-          <h3 class="text-xl font-semibold mb-4">Web Development</h3>
-          <p class="text-gray-600">Building responsive and performant web applications using modern technologies.</p>
+          <h3 class="text-xl font-semibold mb-4">System Development</h3>
+          <p class="text-gray-600">Building robust and efficient systems using C++ and Python.</p>
         </div>
         <div class="text-center p-6">
-          <h3 class="text-xl font-semibold mb-4">UI/UX Design</h3>
-          <p class="text-gray-600">Creating intuitive and engaging user interfaces with a focus on user experience.</p>
+          <h3 class="text-xl font-semibold mb-4">Cloud Technologies</h3>
+          <p class="text-gray-600">Implementing cloud solutions and CI/CD pipelines with Docker and Jenkins.</p>
         </div>
         <div class="text-center p-6">
-          <h3 class="text-xl font-semibold mb-4">Problem Solving</h3>
-          <p class="text-gray-600">Developing efficient solutions to complex technical challenges.</p>
+          <h3 class="text-xl font-semibold mb-4">Research & Development</h3>
+          <p class="text-gray-600">Contributing to cutting-edge research in compiler tools and software systems.</p>
         </div>
       </div>
     </div>
