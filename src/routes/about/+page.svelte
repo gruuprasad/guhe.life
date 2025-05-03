@@ -1,9 +1,9 @@
 <script>
   let skills = [
-    { name: 'Frontend Development', level: 'Advanced' },
-    { name: 'Backend Development', level: 'Intermediate' },
-    { name: 'UI/UX Design', level: 'Intermediate' },
-    { name: 'Project Management', level: 'Advanced' }
+    { name: 'Programming Languages', level: 'C, C++, Python, JavaScript' },
+    { name: 'Machine Learning', level: 'Python with Numpy, Pandas, TensorFlow' },
+    { name: 'Web Frameworks', level: 'Django, Flask, NodeJS' },
+    { name: 'Tools & Technologies', level: 'CMake, gdb, Docker, LaTeX, vim, AWS, Terraform, Jenkins' }
   ];
 </script>
 
@@ -14,16 +14,33 @@
     <div class="space-y-6">
       <h2 class="text-2xl font-semibold">Professional Background</h2>
       <p class="text-gray-700">
-        I am a passionate developer with a strong focus on creating elegant, efficient, and user-friendly solutions. 
-        With several years of experience in web development, I've worked on various projects ranging from small business 
-        websites to complex web applications.
+        I am a software engineer with extensive experience in system development, cloud technologies, and research. 
+        Currently working as an Intermediate Software Design Engineer at Evertz India Pvt Ltd, I specialize in 
+        implementing new features for ORT playout servers, live stream handling, and creating CI/CD pipelines. 
+        My background includes research work at Max Planck Institute for Software Systems and DFKI, where I 
+        contributed to compiler tools and multi-modal interaction software development.
       </p>
       
       <h2 class="text-2xl font-semibold">Education</h2>
-      <p class="text-gray-700">
-        I hold a degree in Computer Science and continue to expand my knowledge through continuous learning and 
-        practical experience in the field.
-      </p>
+      <div class="space-y-4">
+        <div class="bg-white p-4 rounded-lg shadow">
+          <h3 class="font-medium">University of Saarland</h3>
+          <p class="text-gray-600">MSc in Computer Science (2016-2019)</p>
+          <p class="text-gray-500">Saarbruecken, Germany</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow">
+          <h3 class="font-medium">B.M.S College of Engineering</h3>
+          <p class="text-gray-600">B.E in Electronics and Communication (2010-2014)</p>
+          <p class="text-gray-500">Bengaluru, Karnataka</p>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-semibold">Volunteer Activities</h2>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Wingman role in Make A Difference (MAD)</li>
+        <li>Volunteer at the Sristi foundation, Pondicherry</li>
+        <li>Organic farming in various farms at Auroville</li>
+      </ul>
     </div>
     
     <div class="space-y-6">
