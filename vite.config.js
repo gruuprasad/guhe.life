@@ -17,5 +17,5 @@ export default defineConfig(({ mode }) => ({
     minify: 'terser',
     sourcemap: true
   },
-  base: mode === 'production' ? '' : '/'
+  base: mode === 'production' ? '/guhe.life/' : '/'
 }));
