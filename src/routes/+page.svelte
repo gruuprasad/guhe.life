@@ -6,12 +6,6 @@
       description: 'Implemented new features for ORT playout servers and live stream handling at Evertz India Pvt Ltd.',
       technologies: ['C++', 'Python', 'Docker', 'Jenkins'],
       link: 'https://evertz.com'
-    },
-    {
-      title: 'Compiler Tools Development',
-      description: 'Contributed to compiler tools development at Max Planck Institute for Software Systems.',
-      technologies: ['C++', 'LLVM', 'CMake'],
-      link: 'https://www.mpi-sws.org'
     }
   ];
 </script>
