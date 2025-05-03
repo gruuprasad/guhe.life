@@ -34,6 +34,7 @@ jobs:
       - name: Build
         env:
           NODE_ENV: production
+          VITE_BASE_PATH: /guhe.life
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4

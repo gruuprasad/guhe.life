@@ -24,7 +24,8 @@ const config = {
         // fail on other errors
         throw new Error(message);
       }
-    }
+    },
+    appDir: '_app'
   },
   preprocess: vitePreprocess()
 };
