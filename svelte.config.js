@@ -12,7 +12,8 @@ const config = {
       strict: true
     }),
     paths: {
-      base: process.env.NODE_ENV === 'production' ? '/guhe.life' : ''
+      base: process.env.NODE_ENV === 'production' ? '/guhe.life' : '',
+      assets: process.env.NODE_ENV === 'production' ? '/guhe.life' : ''
     },
     prerender: {
       entries: ['*'],
@@ -25,7 +26,8 @@ const config = {
         throw new Error(message);
       }
     },
-    appDir: '_app'
+    appDir: '_app',
+    trailingSlash: 'always'
   },
   preprocess: vitePreprocess()
 };
