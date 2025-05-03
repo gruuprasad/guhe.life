@@ -11,12 +11,6 @@
       description: 'Contributed to compiler tools development at Max Planck Institute for Software Systems.',
       technologies: ['C++', 'LLVM', 'CMake'],
       link: 'https://www.mpi-sws.org'
-    },
-    {
-      title: 'Multi-modal Interaction Software',
-      description: 'Developed multi-modal interaction software at DFKI.',
-      technologies: ['Python', 'TensorFlow', 'Django'],
-      link: 'https://www.dfki.de'
     }
   ];
 </script>
