@@ -6,7 +6,7 @@
   };
 
   let socialLinks = [
-    { name: 'GitHub', url: 'https://github.com/yourusername', icon: 'github' },
+    { name: 'GitHub', url: 'https://github.com/gruuprasad', icon: 'github' },
     { name: 'LinkedIn', url: 'https://linkedin.com/in/yourusername', icon: 'linkedin' },
     { name: 'Twitter', url: 'https://twitter.com/yourusername', icon: 'twitter' }
   ];
