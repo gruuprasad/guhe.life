@@ -12,8 +12,11 @@
     "@sveltejs/adapter-static": "^3.0.8",
     "@sveltejs/kit": "^2.15.2",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "autoprefixer": "^10.4.21",
     "gh-pages": "^6.3.0",
+    "postcss": "^8.5.3",
     "svelte": "^5.17.3",
+    "tailwindcss": "^4.1.5",
     "vite": "^6.0.7"
   }
 }
