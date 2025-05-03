@@ -35,7 +35,9 @@ jobs:
         env:
           NODE_ENV: production
           VITE_BASE_PATH: /guhe.life
-        run: npm run build
+        run: |
+          npm run build
+          cp build/_app/immutable/* build/
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
