@@ -2,7 +2,7 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
 /** @type {import('vite').UserConfig} */
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [sveltekit()],
   server: {
     port: 5173,
@@ -16,5 +16,6 @@ export default defineConfig({
     target: 'esnext',
     minify: 'terser',
     sourcemap: true
-  }
-});
+  },
+  base: mode === 'production' ? '/guhe.life/' : '/'
+}));
