@@ -15,6 +15,7 @@ const config = {
       base: process.env.NODE_ENV === 'production' ? '/guhe.life' : ''
     },
     prerender: {
+      entries: ['*'],
       handleHttpError: ({ path, referrer, message }) => {
         // ignore missing pages
         if (message.includes('Not found:')) {
