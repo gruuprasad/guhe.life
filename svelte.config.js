@@ -26,8 +26,7 @@ const config = {
         throw new Error(message);
       }
     },
-    appDir: '_app',
-    trailingSlash: 'always'
+    appDir: '_app'
   },
   preprocess: vitePreprocess()
 };
