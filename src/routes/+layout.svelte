@@ -11,9 +11,9 @@
         <div class="hidden md:flex space-x-8">
           {#each [
             { href: base, label: 'Home' },
-            { href: `${base}/about`, label: 'About' },
-            { href: `${base}/projects`, label: 'Projects' },
-            { href: `${base}/contact`, label: 'Contact' }
+            { href: base + '/about', label: 'About' },
+            { href: base + '/projects', label: 'Projects' },
+            { href: base + '/contact', label: 'Contact' }
           ] as { href: string; label: string }}
             <a
               href={href}

@@ -23,8 +23,8 @@
         <h1 class="text-5xl font-bold mb-6 text-white">Guru Prasad</h1>
         <p class="text-xl text-white/90 mb-8">Full Stack Developer & DevOps Engineer</p>
         <div class="flex justify-center space-x-4">
-          <a href={`${base}/projects`} class="btn btn-primary">View My Work</a>
-          <a href={`${base}/contact`} class="btn bg-white/10 text-white hover:bg-white/20">Contact Me</a>
+          <a href={base + '/projects'} class="btn btn-primary">View My Work</a>
+          <a href={base + '/contact'} class="btn bg-white/10 text-white hover:bg-white/20">Contact Me</a>
         </div>
       </div>
     </div>
@@ -89,7 +89,7 @@
         </div>
       </div>
       <div class="text-center mt-8">
-        <a href={`${base}/projects`} class="btn btn-primary">View All Projects</a>
+        <a href={base + '/projects'} class="btn btn-primary">View All Projects</a>
       </div>
     </div>
   </section>
