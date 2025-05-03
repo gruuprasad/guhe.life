@@ -1,21 +1,9 @@
-import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vite';
+import { sveltekit } from "@sveltejs/kit/vite";
 
 /** @type {import('vite').UserConfig} */
-export default defineConfig(({ mode }) => ({
+export default {
   plugins: [sveltekit()],
-  server: {
-    port: 5173,
-    strictPort: false,
-  },
-  preview: {
-    port: 4173,
-    strictPort: false,
-  },
-  build: {
-    target: 'esnext',
-    minify: 'terser',
-    sourcemap: true
-  },
-  base: mode === 'production' ? '/guhe.life' : '/'
-}));
+  css: {
+    postcss: true
+  }
+};
