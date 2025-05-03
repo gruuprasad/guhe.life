@@ -26,8 +26,8 @@
           I'm a software engineer with expertise in system development, cloud technologies, and research.
         </p>
         <div class="space-x-4">
-          <a href="/projects" class="btn bg-white text-blue-600 hover:bg-gray-100">View My Work</a>
-          <a href="/contact" class="btn border-2 border-white hover:bg-white hover:text-blue-600">Contact Me</a>
+          <a href="{base}/projects" class="btn bg-white text-blue-600 hover:bg-gray-100">View My Work</a>
+          <a href="{base}/contact" class="btn border-2 border-white hover:bg-white hover:text-blue-600">Contact Me</a>
         </div>
       </div>
     </div>
