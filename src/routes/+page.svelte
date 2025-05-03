@@ -16,22 +16,30 @@
   ];
 </script>
 
-<div class="min-h-screen">
-  <section class="section gradient-bg">
-    <div class="container">
-      <div class="text-center">
-        <h1 class="text-5xl font-bold mb-6 text-white">Guru Prasad</h1>
-        <p class="text-xl text-white/90 mb-8">Full Stack Developer & DevOps Engineer</p>
-        <div class="flex justify-center space-x-4">
-          <a href={base + '/projects'} class="btn btn-primary">View My Work</a>
-          <a href={base + '/contact'} class="btn bg-white/10 text-white hover:bg-white/20">Contact Me</a>
-        </div>
+<div class="min-h-[calc(100vh-4rem)] flex items-center">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6 gradient-text">
+        Hi, I'm Guruprasad
+      </h1>
+      <p class="text-xl md:text-2xl text-slate-400 mb-8">
+        A Full Stack Developer passionate about creating modern web applications
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={base + '/projects'} class="btn btn-primary">
+          View My Work
+        </a>
+        <a href={base + '/contact'} class="btn btn-secondary">
+          Get in Touch
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <section class="section bg-slate-900">
-    <div class="container">
+<section class="section gradient-bg">
+  <div class="container">
+    <div class="text-center">
       <h2 class="section-title">What I Do</h2>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="card p-6">
@@ -63,34 +71,34 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section bg-slate-800">
-    <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="card p-6">
-          <h3 class="text-xl font-bold mb-2 text-white">Project One</h3>
-          <p class="text-slate-400 mb-4">A full-stack web application built with React and Node.js.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="tag">React</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">MongoDB</span>
-          </div>
-        </div>
-        <div class="card p-6">
-          <h3 class="text-xl font-bold mb-2 text-white">Project Two</h3>
-          <p class="text-slate-400 mb-4">A cloud-native application deployed on AWS.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="tag">AWS</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Kubernetes</span>
-          </div>
+<section class="section bg-slate-800">
+  <div class="container">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="card p-6">
+        <h3 class="text-xl font-bold mb-2 text-white">Project One</h3>
+        <p class="text-slate-400 mb-4">A full-stack web application built with React and Node.js.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">React</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">MongoDB</span>
         </div>
       </div>
-      <div class="text-center mt-8">
-        <a href={base + '/projects'} class="btn btn-primary">View All Projects</a>
+      <div class="card p-6">
+        <h3 class="text-xl font-bold mb-2 text-white">Project Two</h3>
+        <p class="text-slate-400 mb-4">A cloud-native application deployed on AWS.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">AWS</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Kubernetes</span>
+        </div>
       </div>
     </div>
-  </section>
-</div>
+    <div class="text-center mt-8">
+      <a href={base + '/projects'} class="btn btn-primary">View All Projects</a>
+    </div>
+  </div>
+</section>
