@@ -1,6 +1,7 @@
 <script>
   import { page } from '$app/stores';
   import { base } from '$app/paths';
+  import '../app.css';
 
   const navItems = [
     { href: base, label: 'Home' },
