@@ -7,7 +7,7 @@ const config = {
     adapter: adapter({
       pages: 'build',
       assets: 'build',
-      fallback: 'index.html',
+      fallback: '404.html',
       precompress: false,
       strict: true
     }),
@@ -15,7 +15,6 @@ const config = {
       base: process.env.NODE_ENV === 'production' ? '/guhe.life' : ''
     },
     prerender: {
-      entries: ['*'],
       handleHttpError: ({ path, referrer, message }) => {
         // ignore missing pages
         if (message.includes('Not found:')) {
