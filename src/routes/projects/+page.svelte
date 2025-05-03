@@ -1,25 +1,22 @@
 <script>
   let projects = [
     {
-      title: 'E-commerce Platform',
-      description: 'A full-featured e-commerce platform with real-time inventory management, payment processing, and admin dashboard.',
-      technologies: ['Svelte', 'Node.js', 'MongoDB', 'Stripe'],
-      image: '/project1.jpg',
-      link: 'https://github.com/yourusername/project1'
+      title: 'ORT Playout Server',
+      description: 'Implemented new features for ORT playout servers and live stream handling at Evertz India Pvt Ltd.',
+      technologies: ['C++', 'Python', 'Docker', 'Jenkins'],
+      link: 'https://evertz.com'
     },
     {
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates and team features.',
-      technologies: ['SvelteKit', 'PostgreSQL', 'WebSocket'],
-      image: '/project2.jpg',
-      link: 'https://github.com/yourusername/project2'
+      title: 'Compiler Tools Development',
+      description: 'Contributed to compiler tools development at Max Planck Institute for Software Systems.',
+      technologies: ['C++', 'LLVM', 'CMake'],
+      link: 'https://www.mpi-sws.org'
     },
     {
-      title: 'Portfolio Website',
-      description: 'A modern portfolio website built with SvelteKit and Tailwind CSS.',
-      technologies: ['SvelteKit', 'Tailwind CSS', 'Vite'],
-      image: '/project3.jpg',
-      link: 'https://github.com/yourusername/project3'
+      title: 'Multi-modal Interaction Software',
+      description: 'Developed multi-modal interaction software at DFKI.',
+      technologies: ['Python', 'TensorFlow', 'Django'],
+      link: 'https://www.dfki.de'
     }
   ];
 </script>
@@ -51,7 +48,7 @@
             rel="noopener noreferrer"
             class="btn-primary inline-block"
           >
-            View Project
+            Learn More
           </a>
         </div>
       </div>
