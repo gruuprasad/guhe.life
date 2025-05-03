@@ -1,6 +1,13 @@
 <script>
   import { page } from '$app/stores';
   import { base } from '$app/paths';
+
+  const navItems = [
+    { href: base, label: 'Home' },
+    { href: base + '/about', label: 'About' },
+    { href: base + '/projects', label: 'Projects' },
+    { href: base + '/contact', label: 'Contact' }
+  ];
 </script>
 
 <div class="min-h-screen flex flex-col">
@@ -9,12 +16,7 @@
       <div class="flex justify-between items-center">
         <a href={base} class="text-2xl font-bold gradient-text">Guru Prasad</a>
         <div class="hidden md:flex space-x-8">
-          {#each [
-            { href: base, label: 'Home' },
-            { href: base + '/about', label: 'About' },
-            { href: base + '/projects', label: 'Projects' },
-            { href: base + '/contact', label: 'Contact' }
-          ] as { href: string; label: string }}
+          {#each navItems as { href, label }}
             <a
               href={href}
               class="link"
