@@ -96,3 +96,26 @@
     </div>
   </div>
 </section>
+
+<section class="section gradient-bg">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-title">Latest Blog Posts</h2>
+      <div class="grid md:grid-cols-2 gap-8 mt-8">
+        <div class="card p-6">
+          <h3 class="text-xl font-bold mb-2 text-white">How to Build a Modern Web App</h3>
+          <p class="text-slate-400 mb-4">A step-by-step guide to building scalable web applications using SvelteKit and Tailwind CSS.</p>
+          <a href={base + '/blog/how-to-build-modern-web-app'} class="btn btn-secondary">Read More</a>
+        </div>
+        <div class="card p-6">
+          <h3 class="text-xl font-bold mb-2 text-white">DevOps Best Practices in 2024</h3>
+          <p class="text-slate-400 mb-4">Explore the latest trends and best practices in DevOps, CI/CD, and cloud infrastructure.</p>
+          <a href={base + '/blog/devops-best-practices-2024'} class="btn btn-secondary">Read More</a>
+        </div>
+      </div>
+      <div class="text-center mt-8">
+        <a href={base + '/blog'} class="btn btn-primary">View All Blog Posts</a>
+      </div>
+    </div>
+  </div>
+</section>
