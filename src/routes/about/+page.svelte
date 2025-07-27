@@ -2,12 +2,9 @@
   import { base } from '$app/paths';
 
   const skills = [
-    { name: 'JavaScript', level: 90 },
-    { name: 'TypeScript', level: 85 },
-    { name: 'React', level: 90 },
-    { name: 'Node.js', level: 85 },
-    { name: 'Python', level: 80 },
-    { name: 'SQL', level: 85 }
+    { name: 'C++', level: 90 },
+    { name: 'Python', level: 85 },
+    { name: 'system software', level: 80 },
   ];
 </script>
 
@@ -43,9 +40,7 @@
       <h2 class="text-3xl font-bold mb-6">About Me</h2>
       <div class="prose prose-invert max-w-none">
         <p class="text-lg text-slate-300">
-          I'm a passionate Full Stack Developer with expertise in building modern web applications.
-          With a strong foundation in both frontend and backend technologies, I create seamless
-          user experiences and robust server-side solutions.
+          I am a software engineer with over 4 years of industry experience.
         </p>
       </div>
     </section>
