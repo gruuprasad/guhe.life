@@ -1,14 +1,59 @@
 <script>
   import { base } from "$app/paths";
-  let featuredProjects = [
-    {
-      title: 'ORT Playout Server',
-      description: 'Implemented new features for ORT playout servers and live stream handling at Evertz India Pvt Ltd.',
-      technologies: ['C++', 'Python', 'Docker', 'Jenkins'],
-      link: 'https://evertz.com'
+  import { onMount } from 'svelte';
+  let threeCanvas;
+  let animationId;
+
+  onMount(async () => {
+    const THREE = await import('three');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, threeCanvas.clientWidth / threeCanvas.clientHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: threeCanvas, alpha: true, antialias: true });
+    renderer.setSize(threeCanvas.clientWidth, threeCanvas.clientHeight);
+    renderer.setClearColor(0x000000, 0); // transparent background
+
+    const geometry = new THREE.BoxGeometry();
+    const material = new THREE.MeshStandardMaterial({ color: 0x6366f1 });
+    const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+
+    const light = new THREE.DirectionalLight(0xffffff, 1);
+    light.position.set(2, 2, 5);
+    scene.add(light);
+
+    camera.position.z = 3;
+
+    function animate() {
+      animationId = requestAnimationFrame(animate);
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+      renderer.render(scene, camera);
     }
-  ];
+    animate();
+
+    // Handle resize
+    const handleResize = () => {
+      const width = threeCanvas.clientWidth;
+      const height = threeCanvas.clientHeight;
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      window.removeEventListener('resize', handleResize);
+      renderer.dispose();
+      geometry.dispose();
+      material.dispose();
+    };
+  });
 </script>
+
+<div class="w-full flex justify-center items-center pt-8 pb-4">
+  <canvas bind:this={threeCanvas} width="400" height="300" class="rounded-xl shadow-lg max-w-full h-auto" style="background: transparent;"></canvas>
+</div>
 
 <div class="min-h-[calc(100vh-4rem)] flex items-center">
   <div class="container mx-auto px-4">
