@@ -1,17 +1,8 @@
 <script>
   import { base } from "$app/paths";
-  let posts = [
-    {
-      title: "How to Build a Modern Web App",
-      description: "A step-by-step guide to building scalable web applications using SvelteKit and Tailwind CSS.",
-      slug: "how-to-build-modern-web-app"
-    },
-    {
-      title: "DevOps Best Practices in 2024",
-      description: "Explore the latest trends and best practices in DevOps, CI/CD, and cloud infrastructure.",
-      slug: "devops-best-practices-2024"
-    }
-  ];
+  import { getPosts } from "$lib/posts";
+  
+  export let data;
 </script>
 
 <section class="section gradient-bg">
@@ -21,11 +12,14 @@
       <p class="text-slate-400 text-lg">Insights, tutorials, and stories from my journey as a developer.</p>
     </div>
     <div class="grid md:grid-cols-2 gap-8">
-      {#each posts as post}
+      {#each data.posts as post}
         <div class="card p-6">
           <h2 class="text-2xl font-bold mb-2 text-white">{post.title}</h2>
           <p class="text-slate-400 mb-4">{post.description}</p>
-          <a href={base + '/blog/' + post.slug} class="btn btn-secondary">Read More</a>
+          <div class="flex items-center justify-between">
+            <span class="text-sm text-slate-500">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            <a href={base + '/blog/' + post.slug} class="btn btn-secondary">Read More</a>
+          </div>
         </div>
       {/each}
     </div>

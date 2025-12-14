@@ -1,166 +1,58 @@
 <script>
   import { base } from "$app/paths";
-  import { onMount } from 'svelte';
-  let threeCanvas;
-  let animationId;
-
-  onMount(async () => {
-    const THREE = await import('three');
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, threeCanvas.clientWidth / threeCanvas.clientHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: threeCanvas, alpha: true, antialias: true });
-    renderer.setSize(threeCanvas.clientWidth, threeCanvas.clientHeight);
-    renderer.setClearColor(0x000000, 0); // transparent background
-
-    const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshStandardMaterial({ color: 0x6366f1 });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
-
-    const light = new THREE.DirectionalLight(0xffffff, 1);
-    light.position.set(2, 2, 5);
-    scene.add(light);
-
-    camera.position.z = 3;
-
-    function animate() {
-      animationId = requestAnimationFrame(animate);
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-      renderer.render(scene, camera);
-    }
-    animate();
-
-    // Handle resize
-    const handleResize = () => {
-      const width = threeCanvas.clientWidth;
-      const height = threeCanvas.clientHeight;
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-      renderer.setSize(width, height);
-    };
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      cancelAnimationFrame(animationId);
-      window.removeEventListener('resize', handleResize);
-      renderer.dispose();
-      geometry.dispose();
-      material.dispose();
-    };
-  });
+  
+  export let data;
 </script>
 
-<div class="w-full flex justify-center items-center pt-8 pb-4">
-  <canvas bind:this={threeCanvas} width="400" height="300" class="rounded-xl shadow-lg max-w-full h-auto" style="background: transparent;"></canvas>
+<div class="min-h-[calc(100vh-4rem)]">
+  <div class="container mx-auto px-4 py-16">
+    <div class="max-w-4xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 gradient-text">
+          Guruprasad
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-400">
+          Sharing ideas, thoughts, and experiences
+        </p>
+      </div>
+
+      <!-- Latest Blog Posts -->
+      <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-indigo-400">Latest Posts</h2>
+        <div class="space-y-6">
+          {#each data.posts.slice(0, 10) as post}
+            <article class="card p-6 hover:border-indigo-500/50 transition-all">
+              <h3 class="text-2xl font-bold mb-2 text-white">
+                <a href={base + '/blog/' + post.slug} class="hover:text-indigo-400 transition-colors">
+                  {post.title}
+                </a>
+              </h3>
+              {#if post.description}
+                <p class="text-slate-400 mb-4">{post.description}</p>
+              {/if}
+              <div class="flex items-center justify-between">
+                <time class="text-sm text-slate-500" datetime={post.date}>
+                  {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
+                <a href={base + '/blog/' + post.slug} class="btn btn-secondary text-sm">
+                  Read More →
+                </a>
+              </div>
+            </article>
+          {/each}
+        </div>
+        
+        {#if data.posts.length > 10}
+          <div class="text-center mt-8">
+            <a href={base + '/blog'} class="btn btn-primary">View All Posts</a>
+          </div>
+        {:else if data.posts.length > 0}
+          <div class="text-center mt-8">
+            <a href={base + '/blog'} class="btn btn-primary">View All Posts</a>
+          </div>
+        {/if}
+      </section>
+    </div>
+  </div>
 </div>
-
-<div class="min-h-[calc(100vh-4rem)] flex items-center">
-  <div class="container mx-auto px-4">
-    <div class="max-w-3xl mx-auto text-center">
-      <h1 class="text-5xl md:text-6xl font-bold mb-6 gradient-text">
-        Hi, I'm Guruprasad
-      </h1>
-      <p class="text-xl md:text-2xl text-slate-400 mb-8">
-        A Full Stack Developer passionate about creating modern web applications
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href={base + '/projects'} class="btn btn-primary">
-          View My Work
-        </a>
-        <a href={base + '/contact'} class="btn btn-secondary">
-          Get in Touch
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<section class="section gradient-bg">
-  <div class="container">
-    <div class="text-center">
-      <h2 class="section-title">What I Do</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card p-6">
-          <div class="text-indigo-400 mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold mb-2 text-white">Full Stack Development</h3>
-          <p class="text-slate-400">Building modern web applications with React, Node.js, and cloud technologies.</p>
-        </div>
-        <div class="card p-6">
-          <div class="text-indigo-400 mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold mb-2 text-white">DevOps & Cloud</h3>
-          <p class="text-slate-400">Implementing CI/CD pipelines and managing cloud infrastructure on AWS.</p>
-        </div>
-        <div class="card p-6">
-          <div class="text-indigo-400 mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold mb-2 text-white">System Architecture</h3>
-          <p class="text-slate-400">Designing scalable and maintainable software systems.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section bg-slate-800">
-  <div class="container">
-    <h2 class="section-title">Featured Projects</h2>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="card p-6">
-        <h3 class="text-xl font-bold mb-2 text-white">Project One</h3>
-        <p class="text-slate-400 mb-4">A full-stack web application built with React and Node.js.</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="tag">React</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">MongoDB</span>
-        </div>
-      </div>
-      <div class="card p-6">
-        <h3 class="text-xl font-bold mb-2 text-white">Project Two</h3>
-        <p class="text-slate-400 mb-4">A cloud-native application deployed on AWS.</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="tag">AWS</span>
-          <span class="tag">Docker</span>
-          <span class="tag">Kubernetes</span>
-        </div>
-      </div>
-    </div>
-    <div class="text-center mt-8">
-      <a href={base + '/projects'} class="btn btn-primary">View All Projects</a>
-    </div>
-  </div>
-</section>
-
-<section class="section gradient-bg">
-  <div class="container">
-    <div class="text-center">
-      <h2 class="section-title">Latest Blog Posts</h2>
-      <div class="grid md:grid-cols-2 gap-8 mt-8">
-        <div class="card p-6">
-          <h3 class="text-xl font-bold mb-2 text-white">How to Build a Modern Web App</h3>
-          <p class="text-slate-400 mb-4">A step-by-step guide to building scalable web applications using SvelteKit and Tailwind CSS.</p>
-          <a href={base + '/blog/how-to-build-modern-web-app'} class="btn btn-secondary">Read More</a>
-        </div>
-        <div class="card p-6">
-          <h3 class="text-xl font-bold mb-2 text-white">DevOps Best Practices in 2024</h3>
-          <p class="text-slate-400 mb-4">Explore the latest trends and best practices in DevOps, CI/CD, and cloud infrastructure.</p>
-          <a href={base + '/blog/devops-best-practices-2024'} class="btn btn-secondary">Read More</a>
-        </div>
-      </div>
-      <div class="text-center mt-8">
-        <a href={base + '/blog'} class="btn btn-primary">View All Blog Posts</a>
-      </div>
-    </div>
-  </div>
-</section>

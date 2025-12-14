@@ -1,29 +1,27 @@
-# Guruprasad Hegde's Portfolio
+# guhe.life
 
-A modern, responsive portfolio website built with SvelteKit and Tailwind CSS.
+A personal blog and content sharing platform built with SvelteKit and Tailwind CSS.
 
 ## Features
 
 - 🎨 Modern and clean design
 - 📱 Fully responsive layout
 - ⚡ Fast and optimized performance
-- 🎯 Easy navigation
-- 📝 Professional experience showcase
-- 🎓 Education and skills presentation
-- 🤝 Contact information
+- 📝 Markdown-based blog posts
+- 🎯 Easy content publishing
+- 🌙 Dark theme optimized for reading
 
 ## Tech Stack
 
 - [SvelteKit](https://kit.svelte.dev/) - Frontend framework
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Marked](https://marked.js.org/) - Markdown parser
 - [GitHub Pages](https://pages.github.com/) - Hosting
 
 ## Pages
 
-- **Home**: Landing page with introduction
-- **About**: Professional background, education, and skills
-- **Experience**: Detailed work history and achievements
-- **Projects**: Showcase of personal and professional projects
+- **Home**: Latest blog posts
+- **Blog**: All blog posts listing
 - **Contact**: Contact information and social links
 
 ## Development
@@ -57,6 +55,48 @@ A modern, responsive portfolio website built with SvelteKit and Tailwind CSS.
 
 ```bash
 npm run build
+```
+
+## Adding New Blog Posts
+
+To add a new blog post:
+
+1. Create a new markdown file in `src/lib/posts/` with a descriptive filename (e.g., `my-new-post.md`)
+2. Add frontmatter at the top of the file:
+   ```markdown
+   ---
+   title: Your Post Title
+   date: 2024-01-15
+   description: A brief description of your post
+   ---
+   
+   Your markdown content here...
+   ```
+3. Write your content in markdown below the frontmatter
+4. The post will automatically appear on the homepage and blog listing page
+
+### Frontmatter Fields
+
+- `title` (required): The title of your blog post
+- `date` (required): Publication date in YYYY-MM-DD format
+- `description` (optional): A brief description/summary of the post
+
+### Example Post
+
+```markdown
+---
+title: My First Blog Post
+date: 2024-01-15
+description: This is my first blog post on the new platform
+---
+
+# Welcome
+
+This is the content of my blog post. You can use **markdown** formatting here.
+
+- Lists
+- Code blocks
+- And more!
 ```
 
 ## Deployment
