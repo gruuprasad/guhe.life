@@ -1,5 +1,6 @@
 <script>
   import { base } from "$app/paths";
+  import RotatingWheel from "$lib/components/RotatingWheel.svelte";
   
   export let data;
 </script>
@@ -9,9 +10,9 @@
     <div class="max-w-4xl mx-auto">
       <!-- Header -->
       <div class="text-center mb-16">
-        <h1 class="text-5xl md:text-6xl font-bold mb-6 gradient-text">
-          Guruprasad
-        </h1>
+        <div class="flex justify-center mb-6">
+          <RotatingWheel size={120} rotationSpeed={0.01} />
+        </div>
         <p class="text-xl md:text-2xl text-slate-400">
           Sharing ideas, thoughts, and experiences
         </p>

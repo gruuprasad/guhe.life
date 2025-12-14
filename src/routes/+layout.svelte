@@ -2,6 +2,7 @@
   import { page } from '$app/stores';
   import { base } from '$app/paths';
   import '../app.css';
+  import RotatingWheel from '$lib/components/RotatingWheel.svelte';
 
   const navItems = [
     { href: base, label: 'Home' },
@@ -14,7 +15,9 @@
   <header class="bg-slate-800/50 backdrop-blur-sm border-b border-slate-700/50 sticky top-0 z-50">
     <nav class="container mx-auto py-4">
       <div class="flex justify-between items-center">
-        <a href={base} class="text-2xl font-bold gradient-text">Guruprasad</a>
+        <a href={base} class="flex items-center hover:opacity-80 transition-opacity">
+          <RotatingWheel size={40} rotationSpeed={0.01} />
+        </a>
         <div class="hidden md:flex space-x-8">
           {#each navItems as { href, label }}
             <a
@@ -43,7 +46,7 @@
     <div class="container mx-auto py-8">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="text-slate-400 mb-4 md:mb-0">
-          © {new Date().getFullYear()} Guruprasad. All rights reserved.
+          © {new Date().getFullYear()} All rights reserved.
         </div>
         <div class="flex space-x-6">
           <a href="https://github.com/gruuprasad" target="_blank" rel="noopener noreferrer" class="link">
