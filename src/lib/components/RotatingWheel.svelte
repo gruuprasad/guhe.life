@@ -16,32 +16,36 @@
     // Only run on client side
     if (!browser) return;
     
-    jsLoaded = true;
-    const THREE = await import('three');
+    // Wait for canvas to be available
+    if (!canvas) return;
     
-    // Create scene
-    scene = new THREE.Scene();
-    
-    // Create camera
-    camera = new THREE.PerspectiveCamera(
-      75,
-      canvas.clientWidth / canvas.clientHeight,
-      0.1,
-      1000
-    );
-    camera.position.z = 3;
-    
-    // Create renderer
-    renderer = new THREE.WebGLRenderer({
-      canvas: canvas,
-      alpha: true,
-      antialias: true
-    });
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-    renderer.setClearColor(0x000000, 0); // Transparent background
-    if (typeof window !== 'undefined') {
-      renderer.setPixelRatio(window.devicePixelRatio);
-    }
+    try {
+      jsLoaded = true;
+      const THREE = await import('three');
+      
+      // Create scene
+      scene = new THREE.Scene();
+      
+      // Create camera
+      camera = new THREE.PerspectiveCamera(
+        75,
+        canvas.clientWidth / canvas.clientHeight,
+        0.1,
+        1000
+      );
+      camera.position.z = 3;
+      
+      // Create renderer
+      renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        alpha: true,
+        antialias: true
+      });
+      renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+      renderer.setClearColor(0x000000, 0); // Transparent background
+      if (typeof window !== 'undefined') {
+        renderer.setPixelRatio(window.devicePixelRatio);
+      }
     
     // Create torus (ring/wheel) geometry
     geometry = new THREE.TorusGeometry(1, 0.3, 16, 100);
@@ -90,6 +94,11 @@
     
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', handleResize);
+    }
+    } catch (error) {
+      console.error('Error initializing Three.js wheel:', error);
+      // Keep fallback wheel visible if Three.js fails
+      jsLoaded = false;
     }
   });
   

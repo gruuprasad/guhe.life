@@ -5,12 +5,6 @@
     message: ''
   };
 
-  let socialLinks = [
-    { name: 'GitHub', url: 'https://github.com/gruuprasad', icon: 'github' },
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/yourusername', icon: 'linkedin' },
-    { name: 'Twitter', url: 'https://twitter.com/yourusername', icon: 'twitter' }
-  ];
-
   function handleSubmit() {
     // Here you would typically handle the form submission
     console.log('Form submitted:', formData);
@@ -77,24 +71,8 @@
         <div>
           <h2 class="text-2xl font-semibold mb-4">Contact Information</h2>
           <p class="text-gray-600">
-            Feel free to reach out to me through the contact form or connect with me on social media.
+            Feel free to reach out to me through the contact form.
           </p>
-        </div>
-        
-        <div>
-          <h3 class="text-xl font-semibold mb-4">Connect with me</h3>
-          <div class="space-y-4">
-            {#each socialLinks as link}
-              <a
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex items-center space-x-3 text-gray-700 hover:text-blue-600"
-              >
-                <span class="font-medium">{link.name}</span>
-              </a>
-            {/each}
-          </div>
         </div>
         
         <div>

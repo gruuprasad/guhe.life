@@ -10,12 +10,9 @@
     <div class="max-w-4xl mx-auto">
       <!-- Header -->
       <div class="text-center mb-16">
-        <div class="flex justify-center mb-6">
+        <div class="flex justify-center">
           <RotatingWheel size={120} rotationSpeed={0.01} />
         </div>
-        <p class="text-xl md:text-2xl text-slate-400">
-          Sharing ideas, thoughts, and experiences
-        </p>
       </div>
 
       <!-- Latest Blog Posts -->
