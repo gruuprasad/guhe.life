@@ -20,7 +20,18 @@ const config = {
         if (message.includes('Not found:')) {
           return;
         }
+        // ignore empty dynamic routes (when no blog posts exist)
+        if (message.includes('were not prerendered because they were not found while crawling')) {
+          return;
+        }
         // fail on other errors
+        throw new Error(message);
+      },
+      handleMissingId: ({ path, referrer, message }) => {
+        // ignore missing entries for dynamic routes when empty
+        if (path.includes('[slug]')) {
+          return;
+        }
         throw new Error(message);
       }
     },
