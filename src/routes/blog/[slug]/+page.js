@@ -15,6 +15,7 @@ export async function load({ params }) {
 // Generate static paths for all posts
 export async function entries() {
   const posts = await getPosts();
-  return posts.map(post => ({ slug: post.slug }));
+  // Return empty array if no posts to avoid prerender errors
+  return posts.length > 0 ? posts.map(post => ({ slug: post.slug })) : [];
 }
 
