@@ -4,6 +4,8 @@
   export let size = 50; // Default size in pixels
   export let rotationSpeed = 0.01; // Rotation speed multiplier
   
+  import { browser } from '$app/environment';
+  
   let canvas;
   let animationId;
   let scene, camera, renderer, torus, geometry, material;
@@ -11,6 +13,9 @@
   let jsLoaded = false;
   
   onMount(async () => {
+    // Only run on client side
+    if (!browser) return;
+    
     jsLoaded = true;
     const THREE = await import('three');
     
@@ -34,7 +39,9 @@
     });
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
     renderer.setClearColor(0x000000, 0); // Transparent background
-    renderer.setPixelRatio(window.devicePixelRatio);
+    if (typeof window !== 'undefined') {
+      renderer.setPixelRatio(window.devicePixelRatio);
+    }
     
     // Create torus (ring/wheel) geometry
     geometry = new THREE.TorusGeometry(1, 0.3, 16, 100);
@@ -81,23 +88,27 @@
       renderer.setSize(width, height);
     };
     
-    window.addEventListener('resize', handleResize);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', handleResize);
+    }
   });
   
   onDestroy(() => {
     if (animationId) {
       cancelAnimationFrame(animationId);
     }
+    if (handleResize && typeof window !== 'undefined') {
+      window.removeEventListener('resize', handleResize);
+    }
     if (renderer) {
       renderer.dispose();
     }
-    if (torus && torus.geometry) {
-      torus.geometry.dispose();
+    if (geometry) {
+      geometry.dispose();
     }
-    if (torus && torus.material) {
-      torus.material.dispose();
+    if (material) {
+      material.dispose();
     }
-    window.removeEventListener('resize', handleResize);
   });
 </script>
 
