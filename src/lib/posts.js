@@ -25,16 +25,26 @@ function parseFrontmatter(content) {
   // Parse frontmatter (simple YAML-like parsing)
   const frontmatter = {};
   frontmatterText.split('\n').forEach(line => {
-    const colonIndex = line.indexOf(':');
+    const trimmedLine = line.trim();
+    if (!trimmedLine) return; // Skip empty lines
+    
+    const colonIndex = trimmedLine.indexOf(':');
     if (colonIndex > 0) {
-      const key = line.substring(0, colonIndex).trim();
-      let value = line.substring(colonIndex + 1).trim();
-      // Remove quotes if present
-      if ((value.startsWith('"') && value.endsWith('"')) || 
-          (value.startsWith("'") && value.endsWith("'"))) {
-        value = value.slice(1, -1);
+      const key = trimmedLine.substring(0, colonIndex).trim();
+      let value = trimmedLine.substring(colonIndex + 1).trim();
+      
+      // Handle array values like [item1, item2, item3]
+      if (value.startsWith('[') && value.endsWith(']')) {
+        const arrayContent = value.slice(1, -1);
+        frontmatter[key] = arrayContent.split(',').map(item => item.trim());
+      } else {
+        // Remove quotes if present
+        if ((value.startsWith('"') && value.endsWith('"')) || 
+            (value.startsWith("'") && value.endsWith("'"))) {
+          value = value.slice(1, -1);
+        }
+        frontmatter[key] = value;
       }
-      frontmatter[key] = value;
     }
   });
   

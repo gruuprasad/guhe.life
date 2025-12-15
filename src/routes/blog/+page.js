@@ -1,9 +1,18 @@
 import { getPosts } from '$lib/posts';
+import { error } from '@sveltejs/kit';
 
 export async function load() {
-  const posts = await getPosts();
-  return {
-    posts
-  };
+  try {
+    const posts = await getPosts();
+    return {
+      posts
+    };
+  } catch (err) {
+    console.error('Error loading posts:', err);
+    // Return empty array on error instead of crashing
+    return {
+      posts: []
+    };
+  }
 }
 
