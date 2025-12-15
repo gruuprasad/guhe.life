@@ -37,6 +37,9 @@ function parseFrontmatter(content) {
       if (value.startsWith('[') && value.endsWith(']')) {
         const arrayContent = value.slice(1, -1);
         frontmatter[key] = arrayContent.split(',').map(item => item.trim());
+      } else if (value === 'true' || value === 'false') {
+        // Handle boolean values
+        frontmatter[key] = value === 'true';
       } else {
         // Remove quotes if present
         if ((value.startsWith('"') && value.endsWith('"')) || 
