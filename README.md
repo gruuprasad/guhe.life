@@ -77,11 +77,12 @@ To add a new blog post:
 
 ### Naming Rule
 
-**Simple rule: Use the date as the filename in `YYYY-MM-DD.md` format.**
+**Simple rule: Use the date as the filename in `YYYY-MM-DD.md` format. For multiple posts on the same day, add a number: `YYYY-MM-DD-2.md`, `YYYY-MM-DD-3.md`, etc.**
 
 The filename should match the date in the frontmatter. For example:
-- File: `2024-01-15.md`
-- Date in frontmatter: `date: 2024-01-15`
+- First post: `2024-01-15.md` with `date: 2024-01-15`
+- Second post same day: `2024-01-15-2.md` with `date: 2024-01-15`
+- Third post same day: `2024-01-15-3.md` with `date: 2024-01-15`
 
 ### Frontmatter Fields
 
