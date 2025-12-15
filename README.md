@@ -61,7 +61,7 @@ npm run build
 
 To add a new blog post:
 
-1. Create a new markdown file in `src/lib/posts/` with a descriptive filename (e.g., `my-new-post.md`)
+1. Create a new markdown file in `src/lib/posts/` using the date as the filename: `YYYY-MM-DD.md` (e.g., `2024-01-15.md`)
 2. Add frontmatter at the top of the file:
    ```markdown
    ---
@@ -75,10 +75,18 @@ To add a new blog post:
 3. Write your content in markdown below the frontmatter
 4. The post will automatically appear on the homepage and blog listing page
 
+### Naming Rule
+
+**Simple rule: Use the date as the filename in `YYYY-MM-DD.md` format.**
+
+The filename should match the date in the frontmatter. For example:
+- File: `2024-01-15.md`
+- Date in frontmatter: `date: 2024-01-15`
+
 ### Frontmatter Fields
 
 - `title` (required): The title of your blog post
-- `date` (required): Publication date in YYYY-MM-DD format
+- `date` (required): Publication date in YYYY-MM-DD format (must match filename)
 - `description` (optional): A brief description/summary of the post
 
 ### Example Post
@@ -98,6 +106,8 @@ This is the content of my blog post. You can use **markdown** formatting here.
 - Code blocks
 - And more!
 ```
+
+**File location:** `src/lib/posts/2024-01-15.md`
 
 ## Deployment
 
