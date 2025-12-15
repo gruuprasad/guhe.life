@@ -5,52 +5,64 @@
   export let data;
 </script>
 
-<div class="min-h-[calc(100vh-4rem)]">
-  <div class="container mx-auto px-4 py-16">
+<div class="min-h-[calc(100vh-4rem)] bg-slate-950">
+  <div class="container mx-auto px-4 py-20">
     <div class="max-w-4xl mx-auto">
       <!-- Header -->
-      <div class="text-center mb-16">
-        <div class="flex justify-center">
+      <div class="text-center mb-20">
+        <div class="flex justify-center mb-8">
           <RotatingWheel size={120} rotationSpeed={0.01} />
         </div>
       </div>
 
       <!-- Latest Blog Posts -->
-      <section class="mb-16">
-        <h2 class="text-3xl font-bold mb-8 text-indigo-400">Latest Posts</h2>
-        <div class="space-y-6">
-          {#each data.posts.slice(0, 10) as post}
-            <article class="card p-6 hover:border-indigo-500/50 transition-all">
-              <h3 class="text-2xl font-bold mb-2 text-white">
-                <a href={base + '/blog/' + post.slug} class="hover:text-indigo-400 transition-colors">
-                  {post.title}
+      {#if data.posts.length > 0}
+        <section class="mb-16">
+          <div class="mb-12 border-b border-slate-800 pb-6">
+            <h2 class="text-3xl font-light text-slate-200 tracking-tight">Latest Posts</h2>
+          </div>
+          <div class="space-y-1">
+            {#each data.posts.slice(0, 10) as post}
+              <article class="group border-l-2 border-transparent hover:border-slate-700 transition-colors duration-300">
+                <a href={base + '/blog/' + post.slug} class="block py-6 px-4 hover:bg-slate-900/30 transition-colors">
+                  <div class="flex items-start justify-between gap-4">
+                    <div class="flex-1 min-w-0">
+                      <h3 class="text-xl font-light mb-2 text-slate-300 group-hover:text-slate-200 transition-colors">
+                        {post.title}
+                      </h3>
+                      {#if post.description}
+                        <p class="text-sm text-slate-500 mb-3 line-clamp-2">{post.description}</p>
+                      {/if}
+                      <time class="text-xs text-slate-600 font-mono" datetime={post.date}>
+                        {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                      </time>
+                    </div>
+                    <span class="text-slate-600 group-hover:text-slate-500 text-sm">→</span>
+                  </div>
                 </a>
-              </h3>
-              {#if post.description}
-                <p class="text-slate-400 mb-4">{post.description}</p>
-              {/if}
-              <div class="flex items-center justify-between">
-                <time class="text-sm text-slate-500" datetime={post.date}>
-                  {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                </time>
-                <a href={base + '/blog/' + post.slug} class="btn btn-secondary text-sm">
-                  Read More →
-                </a>
-              </div>
-            </article>
-          {/each}
+              </article>
+            {/each}
+          </div>
+          
+          {#if data.posts.length > 10}
+            <div class="mt-12 text-center border-t border-slate-800 pt-8">
+              <a href={base + '/blog'} class="text-slate-500 hover:text-slate-400 text-sm transition-colors font-light">
+                View All Posts →
+              </a>
+            </div>
+          {:else if data.posts.length > 0}
+            <div class="mt-12 text-center border-t border-slate-800 pt-8">
+              <a href={base + '/blog'} class="text-slate-500 hover:text-slate-400 text-sm transition-colors font-light">
+                View All Posts →
+              </a>
+            </div>
+          {/if}
+        </section>
+      {:else}
+        <div class="text-center py-20">
+          <p class="text-slate-600 text-sm">No posts yet.</p>
         </div>
-        
-        {#if data.posts.length > 10}
-          <div class="text-center mt-8">
-            <a href={base + '/blog'} class="btn btn-primary">View All Posts</a>
-          </div>
-        {:else if data.posts.length > 0}
-          <div class="text-center mt-8">
-            <a href={base + '/blog'} class="btn btn-primary">View All Posts</a>
-          </div>
-        {/if}
-      </section>
+      {/if}
     </div>
   </div>
 </div>

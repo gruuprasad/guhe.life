@@ -1,8 +1,8 @@
 import { getPost, getPosts } from '$lib/posts';
 import { error } from '@sveltejs/kit';
 
-// Disable prerendering when there are no posts
-export const prerender = false;
+// Enable prerendering when posts exist
+export const prerender = true;
 
 export async function load({ params }) {
   try {
