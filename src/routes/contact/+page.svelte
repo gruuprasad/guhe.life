@@ -74,14 +74,6 @@
             Feel free to reach out to me through the contact form.
           </p>
         </div>
-        
-        <div>
-          <h3 class="text-xl font-semibold mb-4">Location</h3>
-          <p class="text-gray-600">
-            Based in Your City, Country<br />
-            Available for remote work worldwide
-          </p>
-        </div>
       </div>
     </div>
   </div>
